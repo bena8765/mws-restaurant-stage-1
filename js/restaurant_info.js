@@ -85,13 +85,17 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
+  address.tabIndex = 0;
+  address.title = 'address';
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.alt = `${restaurant.name} restaurant, ${restaurant.shortDesc}`;
+  image.tabIndex = 0;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
+  cuisine.tabIndex = 0;
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -101,7 +105,6 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   // fill reviews
   fillReviewsHTML();
 }
-
 /**
  * Create restaurant operating hours HTML table and add it to the webpage.
  */
@@ -111,11 +114,13 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     const row = document.createElement('tr');
 
     const day = document.createElement('td');
+    day.tabIndex = 0;
     day.innerHTML = key;
     row.appendChild(day);
 
     const time = document.createElement('td');
     time.innerHTML = operatingHours[key];
+    time.tabIndex = 0;
     row.appendChild(time);
 
     hours.appendChild(row);
@@ -129,10 +134,12 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
+  title.tabIndex = 0;
   container.appendChild(title);
 
   if (!reviews) {
     const noReviews = document.createElement('p');
+    noReviews.tabIndex = 0;
     noReviews.innerHTML = 'No reviews yet!';
     container.appendChild(noReviews);
     return;
@@ -150,19 +157,23 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('p');
+  name.tabIndex = 0;
   name.innerHTML = review.name;
   li.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
+  date.tabIndex = 0;
   li.appendChild(date);
 
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
+  rating.tabIndex = 0;
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
+  comments.tabIndex = 0;
   li.appendChild(comments);
 
   return li;
@@ -171,7 +182,7 @@ createReviewHTML = (review) => {
 /**
  * Add restaurant name to the breadcrumb navigation menu
  */
-fillBreadcrumb = (restaurant=self.restaurant) => {
+fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
