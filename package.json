@@ -21,5 +21,14 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bena8765/mws-restaurant-stage-1/issues"
+  },
+  "devDependencies": {
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-mkdir": "^1.0.0",
+    "grunt-responsive-images": "^1.10.1"
+  },
+  "dependencies": {
+    "imagemagick": "^0.1.3"
   }
 }
