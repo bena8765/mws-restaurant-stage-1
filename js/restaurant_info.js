@@ -35,22 +35,6 @@ initMap = () => {
   });
 }
 
-/* window.initMap = () => {
-  fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
-      console.error(error);
-    } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: restaurant.latlng,
-        scrollwheel: false
-      });
-      fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
-    }
-  });
-} */
-
 /**
  * Get current restaurant from page URL.
  */
@@ -93,7 +77,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.alt = `${restaurant.name} restaurant, ${restaurant.shortDesc}`;
   image.tabIndex = 0;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-
+  image.srcset = DBHelper.imageSetUrlForRestaurant(restaurant);
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.tabIndex = 0;
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -105,14 +89,16 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   // fill reviews
   fillReviewsHTML();
 }
+
 /**
  * Create restaurant operating hours HTML table and add it to the webpage.
  */
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
+  hours.setAttribute('role', 'list');
   for (let key in operatingHours) {
     const row = document.createElement('tr');
-
+    row.setAttribute('role', 'listitem');
     const day = document.createElement('td');
     day.tabIndex = 0;
     day.innerHTML = key;
@@ -133,6 +119,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
+  title.setAttribute('role', 'heading');
   title.innerHTML = 'Reviews';
   title.tabIndex = 0;
   container.appendChild(title);
@@ -145,6 +132,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
     return;
   }
   const ul = document.getElementById('reviews-list');
+  ul.setAttribute('role', 'list');
   reviews.forEach(review => {
     ul.appendChild(createReviewHTML(review));
   });
@@ -156,6 +144,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.setAttribute('role', 'listitem');
   const name = document.createElement('p');
   name.tabIndex = 0;
   name.innerHTML = review.name;
