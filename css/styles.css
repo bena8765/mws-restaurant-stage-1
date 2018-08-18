@@ -285,6 +285,7 @@ nav h1 a {
   flex-wrap: wrap;
   align-content: flex-start;
 }
+
 #reviews-list li p {
 	padding: 20px;
 	width: 100%;
@@ -331,7 +332,6 @@ table#restaurant-hours, p#restaurant-address {
 	padding-left: 20px;
 	padding-right: 20px;
 }
-
 #restaurants-list {
     display: flex;
     flex-wrap: wrap;
