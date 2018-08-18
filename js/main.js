@@ -25,6 +25,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
   initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
+  setTimeout(() => {
+    let map = document.getElementById('map');
+    map.setAttribute('tabindex', '-1');
+    let children = map.querySelectorAll('a');
+    children.forEach(child => {
+      child.setAttribute('tabindex', '-1');
+    });
+  }, 0);
 });
 
 /**

@@ -6,6 +6,14 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {
   initMap();
+  setTimeout(() => {
+    let map = document.getElementById('map');
+    map.setAttribute('tabindex', '-1');
+    let children = map.querySelectorAll('a');
+    children.forEach(child => {
+      child.setAttribute('tabindex', '-1');
+    });
+  }, 0);
 });
 
 /**
