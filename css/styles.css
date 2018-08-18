@@ -476,18 +476,3 @@ table#restaurant-hours, p#restaurant-address {
     float: right;
   }
 }
-
-.skip-link {
-	position: absolute;
-	top: -40px;
-	left: 0;
-	background:  #ffe6e6;  /*#b7410e;*/
-	color: white;
-	padding: 0.5em;
-	z-index: 100;
-	transition: all 0.5s;
-}
-
-.skip-link:focus {
-	top: 0;
-}

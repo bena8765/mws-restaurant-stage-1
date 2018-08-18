@@ -15,10 +15,9 @@
 
 <body>
   <header>
-    <nav role="navigation">
-      <h1 role="heading"><a href="/" role="link">Restaurant Reviews</a></h1>
+    <nav>
+      <h1><a href="/">Restaurant Reviews</a></h1>
     </nav>
-    <a href="#filter-options" class="skip-link" role="link">Skip to restaurants</a>
   </header>
 
   <main id="maincontent" role="main">
@@ -26,16 +25,16 @@
       <div id="map" aria-label="map" role="application"></div>
     </section>
     <section>
-      <div class="filter-options" aria-label="filter options" tabindex="0" role="menu" id="filter-options">
+      <div class="filter-options" aria-label="filter options" tabindex="0">
         <h2 role="definition">Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" role="list" aria-label='neighborhoods' onchange="updateRestaurants()">
-          <option value="all" role="option">All Neighborhoods</option>
+        <select id="neighborhoods-select" name="neighborhoods" aria-label='neighborhoods' onchange="updateRestaurants()">
+          <option value="all" >All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" name="cuisines" role="list" aria-label='cuisines' onchange="updateRestaurants()">
-          <option value="all" role="option">All Cuisines</option>
+        <select id="cuisines-select" name="cuisines" aria-label='cuisines' onchange="updateRestaurants()">
+          <option value="all" >All Cuisines</option>
         </select>
       </div>
-      <ul id="restaurants-list" role="list" aria-label='restaurants list'></ul>
+      <ul id="restaurants-list"  aria-label='restaurants list'></ul>
     </section>
   </main>
 
@@ -46,8 +45,8 @@
 
 
 
-  <footer id="footer">
-    Copyright (c) 2017 <a href="/" role="link"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+  <footer id="footer" role="contentinfo">
+    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
 
 </body>
